@@ -1,0 +1,139 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+buildscript {
+    ext.kotlin_version = "1.5.10"
+    repositories {
+        google()
+        mavenCentral()
+    }
+    dependencies {
+        classpath "com.android.tools.build:gradle:4.2.2"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath "androidx.navigation:navigation-safe-args-gradle-plugin:2.3.5"
+        classpath 'com.google.gms:google-services:4.3.10'
+
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+        jcenter() // Warning: this repository is going to shut down soon
+    }
+}
+
+ext{
+    //SDK & TOOLS
+    minSdkVersion = 21
+    targetSdkVersion = 30
+    compileSdkVersion = 30
+    versionCode = 1
+    versionName = "1.0"
+
+    //Versions
+    appCompatVersion = "1.3.1"
+    coreKtxVersion = "1.6.0"
+    materialVersion = "1.4.0"
+    constraintLayoutVersion = "2.0.4"
+    navigationVersion = "2.3.5"
+    coreTestingVersion = '1.1.1'
+    daggerVersion = '2.28'
+    glideVersion = '4.11.0'
+    gsonVersion = '2.8.6'
+    jUnitVersion = '4.13'
+    mockitoKotlinInlineVersion = '3.3.3'
+    mockitoKotlinVersion = '2.2.0'
+    okHttpLoggingInterceptorVersion = '4.7.2'
+    pagingVersion = '2.1.2'
+    reactiveStreamsVersion = '2.2.0'
+    recyclerViewVersion = '1.1.0'
+    retrofitVersion = '2.9.0'
+    roomVersion = '2.2.5'
+    rxAndroidVersion = '2.1.1'
+    rxJavaVersion = '2.2.19'
+    swipeRefreshLayoutVersion = '1.1.0'
+    viewPagerVersion = '1.0.0'
+    circleIndicatorVersion = '2.1.4'
+    lottieVersion = '3.1.4'
+    dataStoreVersion = '1.0.0-alpha02'
+    firebaseCoreVersion = '19.0.0'
+    firebaseAuthVersion = '21.0.1'
+    firebaseStorageVersion = '20.0.0'
+    firebaseDatabaseVersion = '20.0.1'
+    circleImageViewVersion = '2.2.0'
+    groupieVersion = '2.1.0'
+
+    //Firebase
+    firebaseCoreLib = "com.google.firebase:firebase-core:$firebaseCoreVersion"
+    firebaseAuthLib = "com.google.firebase:firebase-auth:$firebaseAuthVersion"
+    firebaseStorageLib = "com.google.firebase:firebase-storage:$firebaseStorageVersion"
+    firebaseDatabaseLib = "com.google.firebase:firebase-database:$firebaseDatabaseVersion"
+
+    //Circle Image View
+    circleImageViewLib = "de.hdodenhof:circleimageview:$circleImageViewVersion"
+
+    //Groupie
+    groupieLib = "com.xwray:groupie:$groupieVersion"
+
+    //Core Testing
+    coreTestingLib = "android.arch.core:core-testing:$coreTestingVersion"
+
+    //Dagger
+    daggerCompiler = "com.google.dagger:dagger-compiler:$daggerVersion"
+    daggerLib = "com.google.dagger:dagger:$daggerVersion"
+
+    //Glide
+    glideCompiler = "com.github.bumptech.glide:compiler:$glideVersion"
+    glideLib = "com.github.bumptech.glide:glide:$glideVersion"
+
+    //Gson
+    gsonLib = "com.google.code.gson:gson:$gsonVersion"
+
+    //JUnit
+    jUnitLib = "junit:junit:$jUnitVersion"
+
+    //Kotlin
+    kotlinLib = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+
+    //KTX
+    ktxLib = "androidx.core:core-ktx:$coreKtxVersion"
+
+    //Material
+    materialLib = "com.google.android.material:material:$materialVersion"
+
+    //Mockito
+    mockitoLib = "com.nhaarman.mockitokotlin2:mockito-kotlin:$mockitoKotlinVersion"
+    mockitoInlineLib = "org.mockito:mockito-inline:$mockitoKotlinInlineVersion"
+
+    //OkHttp
+    okHttpInterceptorLib = "com.squareup.okhttp3:logging-interceptor:$okHttpLoggingInterceptorVersion"
+
+    //Reactive Streams
+    reactiveStreamsLib = "androidx.lifecycle:lifecycle-reactivestreams-ktx:$reactiveStreamsVersion"
+
+    //Retrofit
+    retrofitGsonLib = "com.squareup.retrofit2:converter-gson:$retrofitVersion"
+    retrofitRxJavaLib = "com.squareup.retrofit2:adapter-rxjava2:$retrofitVersion"
+
+    //Room
+    roomCompiler = "androidx.room:room-compiler:$roomVersion"
+    roomLib = "androidx.room:room-runtime:$roomVersion"
+    roomRxJavaLib = "androidx.room:room-rxjava2:$roomVersion"
+
+    //Rx
+    rxAndroidLib = "io.reactivex.rxjava2:rxandroid:$rxAndroidVersion"
+    rxJavaLib = "io.reactivex.rxjava2:rxjava:$rxJavaVersion"
+
+    //Views
+    appCompatLib = "androidx.appcompat:appcompat:$appCompatVersion"
+    constraintLayoutLib = "androidx.constraintlayout:constraintlayout:$constraintLayoutVersion"
+    recyclerViewLib = "androidx.recyclerview:recyclerview:$recyclerViewVersion"
+    swipeRefreshLayoutLib = "androidx.swiperefreshlayout:swiperefreshlayout:$swipeRefreshLayoutVersion"
+    viewPagerLib = "androidx.viewpager2:viewpager2:$viewPagerVersion"
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}

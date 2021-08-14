@@ -1,0 +1,109 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-android-extensions'
+    id 'kotlin-kapt'
+    id 'androidx.navigation.safeargs.kotlin'
+    id 'com.google.gms.google-services'
+}
+
+android {
+    compileSdkVersion rootProject.compileSdkVersion
+    buildToolsVersion "30.0.3"
+
+    defaultConfig {
+        applicationId "com.manegow.iomessenger"
+        minSdkVersion rootProject.minSdkVersion
+        targetSdkVersion rootProject.targetSdkVersion
+        versionCode rootProject.versionCode
+        versionName rootProject.versionName
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    dataBinding{
+        true
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    sourceSets{
+        main.java.srcDirs += 'src/main/java'
+        test.java.srcDirs += 'src/test/java'
+    }
+    buildFeatures {
+        viewBinding true
+    }
+}
+
+androidExtensions{
+    experimental = true
+    glideCompiler
+}
+
+dependencies {
+
+    //Project
+    implementation project(":data")
+    implementation project(":domain")
+    implementation project(":usecases")
+    implementation project(":framework:databasemanager")
+    implementation project(":framework:imagemanager")
+    implementation project(":framework:requestmanager")
+
+
+    //Kotlin
+    implementation kotlinLib
+
+    //Dagger
+    implementation daggerLib
+    kapt daggerCompiler
+
+    //KTX
+    implementation ktxLib
+
+    //Material
+    implementation materialLib
+
+    //Reactive Streams
+    implementation reactiveStreamsLib
+
+    //RxJava
+    implementation rxAndroidLib
+    implementation rxJavaLib
+
+    //Firebase
+    implementation firebaseCoreLib
+    implementation firebaseAuthLib
+    implementation firebaseStorageLib
+    implementation firebaseDatabaseLib
+
+    //Circle Image View
+    implementation circleImageViewLib
+
+    //Groupie
+    implementation groupieLib
+
+    //View
+    implementation appCompatLib
+    implementation constraintLayoutLib
+    implementation recyclerViewLib
+    implementation swipeRefreshLayoutLib
+    implementation viewPagerLib
+
+    //Testing
+    testImplementation coreTestingLib
+    testImplementation jUnitLib
+    testImplementation mockitoLib
+    testImplementation mockitoInlineLib
+}
