@@ -8,7 +8,7 @@ import io.reactivex.Single
 import java.util.*
 
 interface RemoteBooksDataSource {
-    fun getAllBooks(): Single<Results>
+    fun getAllBooks(): Single<List<Book>>
 }
 
 interface LocalBooksDataSource {

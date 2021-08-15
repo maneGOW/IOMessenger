@@ -12,7 +12,7 @@ class BooksRepository(
     private val localBooksDataSource: LocalBooksDataSource
 ) {
     //region public methods
-    fun getAllBooks(): Single<Results> = remoteBooksDataSource.getAllBooks()
+    fun getAllBooks(): Single<List<Book>> = remoteBooksDataSource.getAllBooks()
     fun getAllFavBooks(): Flowable<List<Book>> = localBooksDataSource.getAllFavBooks()
     fun getFavBookStatus(bookIsmb: String): Maybe<Boolean> =
         localBooksDataSource.getFavBookStatus(bookIsmb)
