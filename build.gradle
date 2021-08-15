@@ -1,25 +1,22 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 buildscript {
-    ext.kotlin_version = "1.5.10"
+    ext.kotlin_version = '1.5.10'
+    ext.mockK_version = '1.9.3'
     repositories {
         google()
-        mavenCentral()
+        jcenter()
     }
     dependencies {
-        classpath "com.android.tools.build:gradle:4.2.2"
+        classpath "com.android.tools.build:gradle:4.0.1"
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
         classpath "androidx.navigation:navigation-safe-args-gradle-plugin:2.3.5"
         classpath 'com.google.gms:google-services:4.3.10'
-
-        // NOTE: Do not place your application dependencies here; they belong
-        // in the individual module build.gradle files
     }
 }
 
 allprojects {
     repositories {
         google()
-        mavenCentral()
         jcenter() // Warning: this repository is going to shut down soon
     }
 }
@@ -27,22 +24,22 @@ allprojects {
 ext{
     //SDK & TOOLS
     minSdkVersion = 21
-    targetSdkVersion = 30
-    compileSdkVersion = 30
+    targetSdkVersion = 29
+    compileSdkVersion = 29
     versionCode = 1
     versionName = "1.0"
 
     //Versions
-    appCompatVersion = "1.3.1"
-    coreKtxVersion = "1.6.0"
-    materialVersion = "1.4.0"
-    constraintLayoutVersion = "2.0.4"
-    navigationVersion = "2.3.5"
+    appCompatVersion = '1.1.0'
+    cardViewVersion = '1.0.0'
+    constraintLayoutVersion = '1.1.3'
+    coreKTXVersion = '1.3.0'
     coreTestingVersion = '1.1.1'
     daggerVersion = '2.28'
     glideVersion = '4.11.0'
     gsonVersion = '2.8.6'
     jUnitVersion = '4.13'
+    materialVersion = '1.1.0'
     mockitoKotlinInlineVersion = '3.3.3'
     mockitoKotlinVersion = '2.2.0'
     okHttpLoggingInterceptorVersion = '4.7.2'
@@ -58,10 +55,10 @@ ext{
     circleIndicatorVersion = '2.1.4'
     lottieVersion = '3.1.4'
     dataStoreVersion = '1.0.0-alpha02'
-    firebaseCoreVersion = '19.0.0'
-    firebaseAuthVersion = '21.0.1'
-    firebaseStorageVersion = '20.0.0'
-    firebaseDatabaseVersion = '20.0.1'
+    firebaseCoreVersion = '16.0.0'
+    firebaseAuthVersion = '16.0.2'
+    firebaseStorageVersion = '16.0.1'
+    firebaseDatabaseVersion = '16.0.1'
     circleImageViewVersion = '2.2.0'
     groupieVersion = '2.1.0'
 
@@ -98,7 +95,7 @@ ext{
     kotlinLib = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 
     //KTX
-    ktxLib = "androidx.core:core-ktx:$coreKtxVersion"
+    ktxLib = "androidx.core:core-ktx:$coreKTXVersion"
 
     //Material
     materialLib = "com.google.android.material:material:$materialVersion"

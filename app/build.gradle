@@ -1,15 +1,12 @@
-plugins {
-    id 'com.android.application'
-    id 'kotlin-android'
-    id 'kotlin-android-extensions'
-    id 'kotlin-kapt'
-    id 'androidx.navigation.safeargs.kotlin'
-    id 'com.google.gms.google-services'
-}
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'com.google.gms.google-services'
+apply plugin: 'androidx.navigation.safeargs.kotlin'
 
 android {
     compileSdkVersion rootProject.compileSdkVersion
-    buildToolsVersion "30.0.3"
 
     defaultConfig {
         applicationId "com.manegow.iomessenger"
@@ -20,6 +17,10 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
 
     buildTypes {
         release {
@@ -27,40 +28,31 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-    dataBinding{
+    dataBinding {
         true
-    }
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
     }
     kotlinOptions {
         jvmTarget = '1.8'
     }
-    sourceSets{
+    sourceSets {
         main.java.srcDirs += 'src/main/java'
         test.java.srcDirs += 'src/test/java'
     }
-    buildFeatures {
-        viewBinding true
-    }
 }
 
-androidExtensions{
+androidExtensions {
     experimental = true
     glideCompiler
 }
 
 dependencies {
-
-    //Project
+//Project
     implementation project(":data")
     implementation project(":domain")
     implementation project(":usecases")
     implementation project(":framework:databasemanager")
     implementation project(":framework:imagemanager")
     implementation project(":framework:requestmanager")
-
 
     //Kotlin
     implementation kotlinLib
@@ -82,19 +74,7 @@ dependencies {
     implementation rxAndroidLib
     implementation rxJavaLib
 
-    //Firebase
-    implementation firebaseCoreLib
-    implementation firebaseAuthLib
-    implementation firebaseStorageLib
-    implementation firebaseDatabaseLib
-
-    //Circle Image View
-    implementation circleImageViewLib
-
-    //Groupie
-    implementation groupieLib
-
-    //View
+    // View
     implementation appCompatLib
     implementation constraintLayoutLib
     implementation recyclerViewLib
@@ -106,4 +86,16 @@ dependencies {
     testImplementation jUnitLib
     testImplementation mockitoLib
     testImplementation mockitoInlineLib
+
+    //Firebase
+    implementation firebaseCoreLib
+    implementation firebaseAuthLib
+    implementation firebaseStorageLib
+    implementation firebaseDatabaseLib
+
+    //Circle Image View
+    implementation circleImageViewLib
+
+    //Groupie
+    implementation groupieLib
 }
