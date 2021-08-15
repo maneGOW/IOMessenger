@@ -1,8 +1,4 @@
-package com.manegow.iomessenger.domain
-
-data class Results(
-    val results: List<Book>
-)
+package com.manegow.iomessenger.domain.books.model
 
 data class Book(
     val isbn: String,

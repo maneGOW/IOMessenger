@@ -1,6 +1,6 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 buildscript {
-    ext.kotlin_version = '1.5.10'
+    ext.kotlin_version = '1.4.32'
     ext.mockK_version = '1.9.3'
     repositories {
         google()
@@ -10,7 +10,7 @@ buildscript {
         classpath "com.android.tools.build:gradle:4.0.1"
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
         classpath "androidx.navigation:navigation-safe-args-gradle-plugin:2.3.5"
-        classpath 'com.google.gms:google-services:4.3.10'
+        classpath 'com.google.gms:google-services:4.0.2'
     }
 }
 
@@ -49,13 +49,14 @@ ext{
     retrofitVersion = '2.9.0'
     roomVersion = '2.2.5'
     rxAndroidVersion = '2.1.1'
-    rxJavaVersion = '2.2.19'
+    rxJavaVersion = '2.2.2'
     swipeRefreshLayoutVersion = '1.1.0'
     viewPagerVersion = '1.0.0'
     circleIndicatorVersion = '2.1.4'
     lottieVersion = '3.1.4'
     dataStoreVersion = '1.0.0-alpha02'
-    firebaseCoreVersion = '16.0.0'
+    firebaseCoreVersion = '16.0.3'
+    firebaseFirestoreVersion = '17.1.0'
     firebaseAuthVersion = '16.0.2'
     firebaseStorageVersion = '16.0.1'
     firebaseDatabaseVersion = '16.0.1'
@@ -67,6 +68,7 @@ ext{
     firebaseAuthLib = "com.google.firebase:firebase-auth:$firebaseAuthVersion"
     firebaseStorageLib = "com.google.firebase:firebase-storage:$firebaseStorageVersion"
     firebaseDatabaseLib = "com.google.firebase:firebase-database:$firebaseDatabaseVersion"
+    firebaseFirestoreLib = "com.google.firebase:firebase-firestore:$firebaseFirestoreVersion"
 
     //Circle Image View
     circleImageViewLib = "de.hdodenhof:circleimageview:$circleImageViewVersion"
@@ -79,7 +81,10 @@ ext{
 
     //Dagger
     daggerCompiler = "com.google.dagger:dagger-compiler:$daggerVersion"
+    daggerProcessor = "com.google.dagger:dagger-android-processor:$daggerVersion"
     daggerLib = "com.google.dagger:dagger:$daggerVersion"
+    daggerAndroidSupportLib = "com.google.dagger:dagger-android-support:$daggerVersion"
+    daggerSupportLib = "com.google.dagger:dagger-android-support:$daggerVersion"
 
     //Glide
     glideCompiler = "com.github.bumptech.glide:compiler:$glideVersion"

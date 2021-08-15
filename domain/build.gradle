@@ -3,4 +3,8 @@ apply plugin: 'kotlin'
 
 dependencies {
     implementation kotlinLib
+
+    //RxJava
+    implementation rxAndroidLib
+    implementation rxJavaLib
 }

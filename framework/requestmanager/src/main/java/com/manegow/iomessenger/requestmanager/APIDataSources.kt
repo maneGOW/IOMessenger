@@ -1,12 +1,10 @@
 package com.manegow.iomessenger.requestmanager
 
 import com.manegow.iomessenger.data.RemoteBooksDataSource
-import com.manegow.iomessenger.domain.Book
-import com.manegow.iomessenger.domain.Results
+import com.manegow.iomessenger.domain.books.model.Book
 import io.reactivex.Single
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
-import java.util.*
 
 class BooksRetrofitDataSource(
     private val booksRequest: BooksRequest

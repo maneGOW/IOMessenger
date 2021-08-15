@@ -1,11 +1,9 @@
 package com.manegow.iomessenger.data
 
-import com.manegow.iomessenger.domain.Book
-import com.manegow.iomessenger.domain.Results
+import com.manegow.iomessenger.domain.books.model.Book
 import io.reactivex.Flowable
 import io.reactivex.Maybe
 import io.reactivex.Single
-import java.util.*
 
 class BooksRepository(
     private val remoteBooksDataSource: RemoteBooksDataSource,

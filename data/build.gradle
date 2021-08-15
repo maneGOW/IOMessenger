@@ -1,4 +1,4 @@
-apply plugin: 'com.android.application'
+apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
@@ -28,6 +28,13 @@ dependencies {
 //Project
     implementation project(":domain")
 
+    //Firebase
+    implementation firebaseCoreLib
+    implementation firebaseAuthLib
+    implementation firebaseStorageLib
+    implementation firebaseDatabaseLib
+    implementation firebaseFirestoreLib
+
     //Dagger
     implementation daggerLib
     kapt daggerCompiler
@@ -44,3 +51,5 @@ dependencies {
     testImplementation mockitoLib
     testImplementation mockitoInlineLib
 }
+
+apply plugin: 'com.google.gms.google-services'

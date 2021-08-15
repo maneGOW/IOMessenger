@@ -2,8 +2,6 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
-apply plugin: 'com.google.gms.google-services'
-apply plugin: 'androidx.navigation.safeargs.kotlin'
 
 android {
     compileSdkVersion rootProject.compileSdkVersion
@@ -45,6 +43,11 @@ androidExtensions {
     glideCompiler
 }
 
+kapt {
+    generateStubs = true
+}
+
+
 dependencies {
 //Project
     implementation project(":data")
@@ -59,6 +62,9 @@ dependencies {
 
     //Dagger
     implementation daggerLib
+    implementation daggerSupportLib
+    implementation daggerAndroidSupportLib
+    kapt daggerProcessor
     kapt daggerCompiler
 
     //KTX
@@ -92,6 +98,7 @@ dependencies {
     implementation firebaseAuthLib
     implementation firebaseStorageLib
     implementation firebaseDatabaseLib
+    implementation firebaseFirestoreLib
 
     //Circle Image View
     implementation circleImageViewLib

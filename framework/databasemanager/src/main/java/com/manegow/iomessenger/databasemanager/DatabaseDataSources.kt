@@ -1,7 +1,7 @@
 package com.manegow.iomessenger.databasemanager
 
 import com.manegow.iomessenger.data.LocalBooksDataSource
-import com.manegow.iomessenger.domain.Book
+import com.manegow.iomessenger.domain.books.model.Book
 import io.reactivex.Flowable
 import io.reactivex.Maybe
 import io.reactivex.android.schedulers.AndroidSchedulers

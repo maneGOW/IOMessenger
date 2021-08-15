@@ -1,7 +1,6 @@
 package com.manegow.iomessenger.databasemanager
 
-import com.manegow.iomessenger.domain.Book
-import java.util.*
+import com.manegow.iomessenger.domain.books.model.Book
 
 fun List<BooksEntity>.toBookDomainList() = map(BooksEntity::toBookDomain)
 
