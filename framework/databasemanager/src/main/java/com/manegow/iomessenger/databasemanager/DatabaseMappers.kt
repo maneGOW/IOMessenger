@@ -15,7 +15,7 @@ fun BooksEntity.toBookDomain() = Book(
 )
 
 fun Book.toBookEntity() = BooksEntity(
-    1,
+    isbn.substring(0,5).toInt(),
     isbn,
     title,
     author,
