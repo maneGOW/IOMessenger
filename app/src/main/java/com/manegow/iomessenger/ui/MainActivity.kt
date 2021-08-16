@@ -18,17 +18,9 @@ class MainActivity : AppCompatActivity(), MainActivityFragmentsListener {
     override fun onLoginClick() = showLoginFragment()
     override fun onLoginSuccess(username: String) = showChatFragment(username)
     override fun onSignUpSuccess(username: String) = showChatFragment(username)
-    override fun onBookClicked(book: Book) {
-        TODO("Not yet implemented")
-    }
-
-    override fun onLogoutClick() = showSignUpFragment()
-
+    override fun onBookClicked(book: Book) = showDetailActivity(book)
+    override fun onLogoutClick() = showLoginFragment()
     override fun onBooksClick() = showBookListFragment()
-
-    override fun onFavBookClick() {
-        TODO("Not yet implemented")
-    }
 
     private fun showIntroFragment() {
         supportFragmentManager.beginTransaction().apply {
@@ -38,7 +30,7 @@ class MainActivity : AppCompatActivity(), MainActivityFragmentsListener {
         }
     }
 
-    private fun showBookListFragment(){
+    private fun showBookListFragment() {
         if (supportFragmentManager.backStackEntryCount > 1) {
             supportFragmentManager.popBackStack()
         }
@@ -63,6 +55,25 @@ class MainActivity : AppCompatActivity(), MainActivityFragmentsListener {
                 R.animator.slide_in_from_left, R.animator.fade_out
             )
             replace(R.id.fragment_container, SignupFragment())
+            addToBackStack(null)
+            commit()
+        }
+    }
+
+    private fun showDetailActivity(book: Book) {
+        if (supportFragmentManager.backStackEntryCount > 1) {
+            supportFragmentManager.popBackStack()
+        }
+        supportFragmentManager.beginTransaction().apply {
+            setCustomAnimations(
+                R.animator.slide_in_from_left, R.animator.slide_out_to_left,
+                R.animator.slide_in_from_left, R.animator.fade_out
+            )
+            replace(
+                R.id.fragment_container,
+                BookDetailFragment.newInstance(book),
+                "DetailFragment"
+            )
             addToBackStack(null)
             commit()
         }
@@ -107,7 +118,10 @@ class MainActivity : AppCompatActivity(), MainActivityFragmentsListener {
             showSignUpFragment()
             return
         }
-
+        if (supportFragmentManager.findFragmentByTag("DetailFragment") != null) {
+            showBookListFragment()
+            return
+        }
         if (supportFragmentManager.backStackEntryCount > 1) {
             supportFragmentManager.popBackStack()
         } else {
