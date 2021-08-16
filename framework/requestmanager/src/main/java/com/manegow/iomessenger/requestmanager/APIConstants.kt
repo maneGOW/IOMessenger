@@ -1,8 +1,8 @@
 package com.manegow.iomessenger.requestmanager
 
 object APIConstants {
-    const val BASE_API_URL = "https://raw.githubusercontent.com/ejgteja/files/main/"
-    const val ENDPOINT_BOOKS = "/books.json"
+    const val BASE_API_URL = "https://raw.githubusercontent.com"
+    const val ENDPOINT_BOOKS = "/ejgteja/files/main/books.json"
 
     const val KEY_ISBN = "isbn"
     const val KEY_TITLE = "title"

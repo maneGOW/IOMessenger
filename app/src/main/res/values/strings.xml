@@ -25,5 +25,12 @@
     <string name="you">Tu</string>
     <string name="connection_error">Verifica tu conexion a internet</string>
 
+    <string name="content_description_book_detail_image">Book poster item</string>
+    <string name="content_description_book_image">Book poster item</string>
+    <string name="content_description_book_image_favorite_icon">Book poster favorite icon</string>
+
+    <string name="error_no_available_data">No available data for the moment.</string>
+
+
 
 </resources>
