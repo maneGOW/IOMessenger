@@ -1,19 +1,15 @@
-package com.manegow.iomessenger
+package com.manegow.iomessenger.ui
 
 import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
 import android.content.Context
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.ImageView
-import androidx.databinding.DataBindingUtil
+import com.manegow.iomessenger.MainActivityFragmentsListener
 import com.manegow.iomessenger.databinding.IntroFragmentBinding
-import com.manegow.iomessenger.databinding.SignupFragmentBinding
 import kotlinx.android.synthetic.main.intro_fragment.*
 import java.lang.ClassCastException
 
@@ -38,6 +34,8 @@ class IntroFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = IntroFragmentBinding.inflate(inflater, container, false)
+
+        binding.login.setOnClickListener { callback.onLoginClick() }
 
         binding.signUp.setOnClickListener { callback.onSignUpClick() }
         return binding.root

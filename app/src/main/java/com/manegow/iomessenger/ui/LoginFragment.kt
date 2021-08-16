@@ -1,38 +1,75 @@
 package com.manegow.iomessenger.ui
 
 import android.content.Context
-import android.graphics.Paint
+import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
+import android.os.ProxyFileDescriptorCallback
 import android.util.Log
+import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProviders
 import com.manegow.iomessenger.MainActivityFragmentsListener
+import com.manegow.iomessenger.presentation.login.LoginViewModel
+import com.manegow.iomessenger.R
 import com.manegow.iomessenger.core.injector
-import com.manegow.iomessenger.databinding.SignupFragmentBinding
-import com.manegow.iomessenger.presentation.signup.SignupViewModel
+import com.manegow.iomessenger.databinding.LoginFragmentBinding
 import com.manegow.iomessenger.utils.InputUtil
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import java.lang.ClassCastException
-import androidx.lifecycle.ViewModelProviders
+import java.lang.Exception
 
-class SignupFragment : Fragment() {
-    private val factory = injector.signupViewModelFactory()
+class LoginFragment : Fragment() {
 
-    private lateinit var viewModel: SignupViewModel
-
+    private val factory = injector.loginViewModelFactory()
+    private lateinit var viewModel: LoginViewModel
     private lateinit var callback: MainActivityFragmentsListener
-
-    private lateinit var binding: SignupFragmentBinding
-
+    private lateinit var binding: LoginFragmentBinding
     private val disposables = CompositeDisposable()
 
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+        binding = LoginFragmentBinding.inflate(inflater, container, false)
+
+        binding.login.setOnClickListener {
+            if (!hasErrors()) {
+                InputUtil.hideKeyboard(requireNotNull(context), view!!)
+                disableLoginButton()
+                disposables.add(
+                    viewModel.login(
+                        binding.username.text.toString(),
+                        binding.password.text.toString()
+                    )
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .subscribe(
+                            { user -> callback.onLoginSuccess(user.username) },
+                            { e ->
+                                enableLoginButton()
+                                showUsernameError()
+                                showPasswordError()
+                                Log.e("LoginFragment", "Error: ", e)
+                            }
+                        )
+                )
+            }
+        }
+
+        return binding.root
+    }
+
+    override fun onStop() {
+        super.onStop()
+        disposables.clear()
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        viewModel = ViewModelProviders.of(requireNotNull(activity), factory).get(SignupViewModel::class.java)
+        viewModel =
+            ViewModelProviders.of(requireNotNull(activity), factory).get(LoginViewModel::class.java)
     }
 
     override fun onAttach(context: Context) {
@@ -40,45 +77,8 @@ class SignupFragment : Fragment() {
         try {
             callback = context as MainActivityFragmentsListener
         } catch (ex: ClassCastException) {
-            throw ClassCastException("El activity debe estar implementado en MainActivityFragmentListener")
+            throw ClassCastException("El activity debe implementar MainActivityFragmentListener")
         }
-    }
-
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        binding = SignupFragmentBinding.inflate(inflater, container, false)
-        binding.lifecycleOwner = this.viewLifecycleOwner
-        binding.login.paintFlags = binding.login.paintFlags or Paint.UNDERLINE_TEXT_FLAG
-        binding.signUp.setOnClickListener {
-            if (!hasErrors()) {
-                InputUtil.hideKeyboard(requireNotNull(context), view!!)
-                disableSignUpButton()
-                disposables.add(
-                    viewModel.signUp(
-                        binding.username.text.toString(),
-                        binding.password.text.toString()
-                    )
-                        .observeOn(AndroidSchedulers.mainThread())
-                        .subscribe({ user -> callback.onSignUpSuccess(user.username) },
-                            { e ->
-                                enableSignUpButton()
-                                showUsernameError()
-                                showPasswordError()
-                                Log.e("SignupFragment", "error:", e)
-                            }
-                        )
-                )
-            }
-        }
-        return binding.root
-    }
-
-    override fun onStop() {
-        super.onStop()
-        disposables.clear()
     }
 
     private fun hasErrors(): Boolean {
@@ -119,11 +119,11 @@ class SignupFragment : Fragment() {
         binding.passwordError.visibility = View.GONE
     }
 
-    private fun enableSignUpButton() {
-        binding.signUp.isEnabled = true
+    private fun enableLoginButton() {
+        binding.login.isEnabled = true
     }
 
-    private fun disableSignUpButton() {
-        binding.signUp.isEnabled = false
+    private fun disableLoginButton() {
+        binding.login.isEnabled = false
     }
 }
