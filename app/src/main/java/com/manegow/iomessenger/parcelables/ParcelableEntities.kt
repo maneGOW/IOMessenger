@@ -1,6 +1,5 @@
 package com.manegow.iomessenger.parcelables
 
-import android.icu.text.CaseMap
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize
 

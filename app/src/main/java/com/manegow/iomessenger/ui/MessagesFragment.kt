@@ -19,6 +19,7 @@ import com.manegow.iomessenger.adapters.MessagesAdapter
 import com.manegow.iomessenger.core.injector
 import com.manegow.iomessenger.databinding.MessagesFragmentBinding
 import com.manegow.iomessenger.domain.messages.model.Message
+import com.manegow.iomessenger.utils.showLongToast
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import java.lang.ClassCastException
@@ -107,7 +108,7 @@ class MessagesFragment : Fragment() {
     }
 
     private fun showConnectionError(){
-        Toast.makeText(requireContext(), getString(R.string.connection_error), Toast.LENGTH_SHORT).show()
+        requireContext().showLongToast(getString(R.string.connection_error))
     }
 
     private fun addMessageBoxTextListener(){

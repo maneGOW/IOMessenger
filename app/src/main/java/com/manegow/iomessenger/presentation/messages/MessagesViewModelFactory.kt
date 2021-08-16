@@ -2,10 +2,8 @@ package com.manegow.iomessenger.presentation.messages
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.manegow.iomessenger.presentation.signup.SignupViewModel
 import com.manegow.iomessenger.usecases.messages.GetMessagesUseCase
 import com.manegow.iomessenger.usecases.messages.SendMessageUseCase
-import com.manegow.iomessenger.usecases.user.SignUpUseCase
 import javax.inject.Inject
 import javax.inject.Singleton
 
