@@ -19,4 +19,11 @@
     <string name="login">Inicia Sesion</string>
     <string name="tos">Al registrate, aceptas los terminos, condiciones y politica de privacidad.</string>
 
+    <string name="log_out">Cerrar Sesion</string>
+    <string name="start_a_new_message">Escribe un nuevo mensaje</string>
+    <string name="send">Enviar</string>
+    <string name="you">Tu</string>
+    <string name="connection_error">Verifica tu conexion a internet</string>
+
+
 </resources>
