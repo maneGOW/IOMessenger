@@ -2,32 +2,54 @@ package com.manegow.iomessenger.ui
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import android.view.Menu
-import android.view.MenuItem
+import com.manegow.iomessenger.IntroFragment
+import com.manegow.iomessenger.MainActivityFragmentsListener
 import com.manegow.iomessenger.R
 
-class MainActivity : AppCompatActivity() {
-
+class MainActivity : AppCompatActivity(), MainActivityFragmentsListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
+        setContentView(R.layout.activity_main)
+        showIntroFragment()
     }
 
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        menuInflater.inflate(R.menu.menu_main, menu)
-        return true
+    override fun onSignUpClick() = showSignUpFragment()
+
+    override fun onSignUpSuccess(username: String) {
+       println("success")
     }
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        return when (item.itemId) {
-            R.id.action_settings -> true
-            else -> super.onOptionsItemSelected(item)
+    private fun showIntroFragment(){
+        supportFragmentManager.beginTransaction().apply {
+            add(R.id.fragment_container, IntroFragment())
+            addToBackStack(null)
+            commit()
         }
     }
 
+    private fun showSignUpFragment(){
+        if(supportFragmentManager.backStackEntryCount > 1){
+            supportFragmentManager.popBackStack()
+        }
+        supportFragmentManager.beginTransaction().apply {
+            setCustomAnimations(R.animator.slide_in_from_right, R.animator.slide_out_to_left,
+            R.animator.slide_in_from_left, R.animator.fade_out)
+            replace(R.id.fragment_container, SignupFragment())
+            commit()
+        }
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        if(supportFragmentManager.findFragmentByTag("MessagesFragment") != null){
+            showSignUpFragment()
+            return
+        }
+        if(supportFragmentManager.backStackEntryCount > 1){
+            supportFragmentManager.popBackStack()
+        } else{
+            finish()
+        }
+    }
 }
