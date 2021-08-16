@@ -37,6 +37,8 @@ class IntroFragment : Fragment() {
 
         binding.login.setOnClickListener { callback.onLoginClick() }
 
+        binding.button.setOnClickListener { callback.onBooksClick() }
+
         binding.signUp.setOnClickListener { callback.onSignUpClick() }
         return binding.root
     }
