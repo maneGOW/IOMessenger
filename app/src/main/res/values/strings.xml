@@ -9,4 +9,28 @@
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+
+    <string name="chat_app">I/O Chat</string>
+
+    <string name="user_name">Nombre de usuario</string>
+    <string name="password">ContraseÑa</string>
+    <string name="value_error">El valor es incorrecto</string>
+    <string name="sign_up">Registrate</string>
+    <string name="login">Inicia Sesion</string>
+    <string name="tos">Al registrate, aceptas los terminos, condiciones y politica de privacidad.</string>
+
+    <string name="log_out">Cerrar Sesion</string>
+    <string name="start_a_new_message">Escribe un nuevo mensaje</string>
+    <string name="send">Enviar</string>
+    <string name="you">Tu</string>
+    <string name="connection_error">Verifica tu conexion a internet</string>
+
+    <string name="content_description_book_detail_image">Book poster item</string>
+    <string name="content_description_book_image">Book poster item</string>
+    <string name="content_description_book_image_favorite_icon">Book poster favorite icon</string>
+
+    <string name="error_no_available_data">No available data for the moment.</string>
+
+
+
 </resources>
