@@ -52,6 +52,7 @@ class SignupFragment : Fragment() {
         binding = SignupFragmentBinding.inflate(inflater, container, false)
         binding.lifecycleOwner = this.viewLifecycleOwner
         binding.login.paintFlags = binding.login.paintFlags or Paint.UNDERLINE_TEXT_FLAG
+        binding.login.setOnClickListener { callback.onLoginClick() }
         binding.signUp.setOnClickListener {
             if (!hasErrors()) {
                 InputUtil.hideKeyboard(requireNotNull(context), view!!)

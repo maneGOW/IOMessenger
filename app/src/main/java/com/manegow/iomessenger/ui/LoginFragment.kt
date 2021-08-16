@@ -1,9 +1,8 @@
 package com.manegow.iomessenger.ui
 
 import android.content.Context
-import androidx.lifecycle.ViewModelProvider
+import android.graphics.Paint
 import android.os.Bundle
-import android.os.ProxyFileDescriptorCallback
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -12,14 +11,12 @@ import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProviders
 import com.manegow.iomessenger.MainActivityFragmentsListener
 import com.manegow.iomessenger.presentation.login.LoginViewModel
-import com.manegow.iomessenger.R
 import com.manegow.iomessenger.core.injector
 import com.manegow.iomessenger.databinding.LoginFragmentBinding
 import com.manegow.iomessenger.utils.InputUtil
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import java.lang.ClassCastException
-import java.lang.Exception
 
 class LoginFragment : Fragment() {
 
@@ -34,6 +31,12 @@ class LoginFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = LoginFragmentBinding.inflate(inflater, container, false)
+
+        binding.signUp.paintFlags = binding.login.paintFlags or Paint.UNDERLINE_TEXT_FLAG
+
+        binding.signUp.setOnClickListener {
+            callback.onSignUpClick()
+        }
 
         binding.login.setOnClickListener {
             if (!hasErrors()) {
