@@ -3,15 +3,11 @@ package com.manegow.iomessenger.core
 import com.manegow.iomessenger.data.BooksRepository
 import com.manegow.iomessenger.data.messages.MessagesRepositoryImpl
 import com.manegow.iomessenger.data.user.AuthRepositoryImpl
-import com.manegow.iomessenger.domain.books.model.Book
-import com.manegow.iomessenger.presentation.bookdetail.BookDetailViewModelFactory
 import com.manegow.iomessenger.presentation.booklist.BooksListViewModelFactory
 import com.manegow.iomessenger.presentation.login.LoginViewModelFactory
 import com.manegow.iomessenger.presentation.messages.MessagesViewModelFactory
 import com.manegow.iomessenger.presentation.signup.SignupViewModelFactory
 import com.manegow.iomessenger.usecases.books.GetAllBooksUseCase
-import com.manegow.iomessenger.usecases.books.GetFavBooksStatusUseCase
-import com.manegow.iomessenger.usecases.books.UpdateFavBookStatusUseCase
 import com.manegow.iomessenger.usecases.messages.GetMessagesUseCase
 import com.manegow.iomessenger.usecases.messages.SendMessageUseCase
 import com.manegow.iomessenger.usecases.user.LoginUseCase

@@ -7,9 +7,9 @@ import com.manegow.iomessenger.data.di.FirebaseModule
 import com.manegow.iomessenger.data.di.RepositoryModule
 import com.manegow.iomessenger.databasemanager.di.DatabaseModule
 import com.manegow.iomessenger.domain.user.repository.AuthRepository
-import com.manegow.iomessenger.presentation.bookdetail.BookDetailViewModelFactory
 import com.manegow.iomessenger.presentation.booklist.BooksListViewModelFactory
 import com.manegow.iomessenger.presentation.login.LoginViewModelFactory
+import com.manegow.iomessenger.presentation.messages.MessagesViewModel
 import com.manegow.iomessenger.presentation.messages.MessagesViewModelFactory
 import com.manegow.iomessenger.presentation.signup.SignupViewModelFactory
 import com.manegow.iomessenger.requestmanager.di.APIModule
@@ -34,7 +34,6 @@ interface AppComponent {
     fun loginViewModelFactory(): LoginViewModelFactory
     fun messagesViewModelFactory(): MessagesViewModelFactory
     fun bookListViewModelFactory(): BooksListViewModelFactory
-    fun bookDetailViewModelFactory(): BookDetailViewModelFactory
 
     fun authRepository(): AuthRepository
     fun firebaseFirestore(): FirebaseFirestore

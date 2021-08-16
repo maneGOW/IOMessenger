@@ -54,7 +54,9 @@ class BooksListFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         bookGridAdapter = BookGridAdapter { book ->
-            callback.onBookClicked(book)
+            println{ book.description }
+            //TODO implementOnBookClicked
+            //callback.onBookClicked(book)
         }
 
         binding.rvCharacterList.run {

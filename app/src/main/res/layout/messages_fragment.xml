@@ -33,7 +33,7 @@
         <Button
             android:id="@+id/log_out"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="36dp"
             android:layout_marginEnd="8dp"
             android:background="@drawable/button_background_dark"
             android:text="@string/log_out"
