@@ -25,10 +25,6 @@ class RepositoryModule {
     )
 
     @Provides
-    @Singleton
-    fun firebaseFirestoreProvider() = FirebaseFirestore.getInstance()
-
-    @Provides
     fun authRepositoryProvider(repository: AuthRepositoryImpl): AuthRepository{
         return repository
     }

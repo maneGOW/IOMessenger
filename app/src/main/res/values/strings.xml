@@ -9,4 +9,14 @@
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+
+    <string name="chat_app">I/O Chat and Books</string>
+
+    <string name="user_name">Nombre de usuario</string>
+    <string name="password">ContraseÑa</string>
+    <string name="value_error">El valor es incorrecto</string>
+    <string name="sign_up">Registrate</string>
+    <string name="login">Inicia Sesion</string>
+    <string name="tos">Al registrate, aceptas los terminos, condiciones y politica de privacidad.</string>
+
 </resources>
