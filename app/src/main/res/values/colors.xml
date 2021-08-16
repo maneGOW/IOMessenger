@@ -14,6 +14,6 @@
     <color name="light_green">#75d810</color>
     <color name="separator_color">#b6c4cc</color>
     <color name="dark_gray">#505152</color>
+
     <color name="colorTransparentAccent">#BB0099CC</color>
-    <color name="colorAccent">@android:color/holo_blue_dark</color>
 </resources>

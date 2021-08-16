@@ -45,24 +45,8 @@ class IntroFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        animateLogoBooks()
-        animateLogo()
-    }
-
-    private fun animateLogo(){
         val animationX = ObjectAnimator.ofFloat(logo, "scaleX", 0f, 1f)
         val animationY = ObjectAnimator.ofFloat(logo, "scaleY", 0f, 1f)
-        animationX.duration = 500
-        animationY.duration = 500
-
-        val scaleUp = AnimatorSet()
-        scaleUp.playTogether(animationX, animationY)
-        scaleUp.start()
-    }
-
-    private fun animateLogoBooks(){
-        val animationX = ObjectAnimator.ofFloat(bookLogo, "scaleX", 0f, 1f)
-        val animationY = ObjectAnimator.ofFloat(bookLogo, "scaleY", 0f, 1f)
         animationX.duration = 500
         animationY.duration = 500
 
