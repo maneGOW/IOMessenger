@@ -11,11 +11,16 @@ class IOMessengerApp: Application() {
 
     override fun onCreate() {
         super.onCreate()
-        injector = DaggerAppComponent.builder()
+        injector = DaggerAppComponent.factory().create(this)
+
+            /*
+            .builder()
+            .create()
+
             .firebaseModule(FirebaseModule())
             .repositoryModule(RepositoryModule())
             .viewModelModule(ViewModelModule())
-            .build()
+            .build()*/
     }
 }
 lateinit var injector: AppComponent

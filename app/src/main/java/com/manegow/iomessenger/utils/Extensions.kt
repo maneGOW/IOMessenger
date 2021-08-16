@@ -8,6 +8,8 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.annotation.LayoutRes
 import androidx.annotation.StringRes
+import androidx.databinding.DataBindingUtil
+import androidx.databinding.ViewDataBinding
 //import androidx.databinding.DataBindingUtil
 //import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
@@ -16,6 +18,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
 import com.manegow.iomessenger.core.IOMessengerApp
+import views.RecyclerViewItemDecoration
 
 val Context.app: IOMessengerApp
     get() = applicationContext as IOMessengerApp
@@ -31,7 +34,7 @@ fun Context.showLongToast(@StringRes resourceId: Int){
 inline fun <reified T : Activity> Context.startActivity(body: Intent.() -> Unit) {
     startActivity(Intent(this, T::class.java).apply(body))
 }
-/*
+
 fun RecyclerView.setItemDecorationSpacing(padding: Float) {
     addItemDecoration(RecyclerViewItemDecoration(padding.toInt()))
 }
@@ -40,7 +43,7 @@ fun <T : ViewDataBinding> ViewGroup.bindingInflate(
     @LayoutRes layoutRes: Int,
     attachToRoot: Boolean = true
 ): T = DataBindingUtil.inflate(LayoutInflater.from(context), layoutRes, this, attachToRoot)
-*/
+
 @Suppress("UNCHECKED_CAST")
 inline fun <reified T : ViewModel> Fragment.getViewModel(crossinline factory: () -> T): T {
 

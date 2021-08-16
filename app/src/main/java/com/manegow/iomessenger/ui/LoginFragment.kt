@@ -26,6 +26,7 @@ class LoginFragment : Fragment() {
     private lateinit var binding: LoginFragmentBinding
     private val disposables = CompositeDisposable()
 
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
