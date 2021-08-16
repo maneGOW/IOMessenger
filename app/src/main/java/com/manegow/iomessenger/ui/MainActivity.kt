@@ -2,7 +2,6 @@ package com.manegow.iomessenger.ui
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.manegow.iomessenger.IntroFragment
 import com.manegow.iomessenger.MainActivityFragmentsListener
 import com.manegow.iomessenger.R
 
@@ -15,10 +14,11 @@ class MainActivity : AppCompatActivity(), MainActivityFragmentsListener {
     }
 
     override fun onSignUpClick() = showSignUpFragment()
+    override fun onLoginClick() = showLoginFragment()
 
-    override fun onSignUpSuccess(username: String) {
-       println("success")
-    }
+    override fun onLoginSuccess(username: String) =  run { println("Inicio de sesion exitoso") }
+
+    override fun onSignUpSuccess(username: String) = run { println("Registro exitoso") }
 
     private fun showIntroFragment(){
         supportFragmentManager.beginTransaction().apply {
@@ -36,19 +36,33 @@ class MainActivity : AppCompatActivity(), MainActivityFragmentsListener {
             setCustomAnimations(R.animator.slide_in_from_right, R.animator.slide_out_to_left,
             R.animator.slide_in_from_left, R.animator.fade_out)
             replace(R.id.fragment_container, SignupFragment())
+            addToBackStack(null)
+            commit()
+        }
+    }
+
+    private fun showLoginFragment(){
+        if(supportFragmentManager.backStackEntryCount > 1){
+            supportFragmentManager.popBackStack()
+        }
+        supportFragmentManager.beginTransaction().apply {
+            setCustomAnimations(R.animator.slide_in_from_right, R.animator.slide_out_to_left,
+                R.animator.slide_in_from_left, R.animator.fade_out)
+            replace(R.id.fragment_container, LoginFragment())
+            addToBackStack(null)
             commit()
         }
     }
 
     override fun onBackPressed() {
-        super.onBackPressed()
-        if(supportFragmentManager.findFragmentByTag("MessagesFragment") != null){
+        if (supportFragmentManager.findFragmentByTag("MessagesFragment") != null) {
             showSignUpFragment()
             return
         }
-        if(supportFragmentManager.backStackEntryCount > 1){
+
+        if (supportFragmentManager.backStackEntryCount > 1) {
             supportFragmentManager.popBackStack()
-        } else{
+        } else {
             finish()
         }
     }

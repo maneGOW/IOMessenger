@@ -1,6 +1,6 @@
 package com.manegow.iomessenger.di
 
-import com.manegow.iomessenger.presentation.SignupViewModel
+import com.manegow.iomessenger.presentation.signup.SignupViewModel
 import com.manegow.iomessenger.usecases.user.SignUpUseCase
 import dagger.Module
 import dagger.Provides

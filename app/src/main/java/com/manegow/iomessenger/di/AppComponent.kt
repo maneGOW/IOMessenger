@@ -4,9 +4,9 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.manegow.iomessenger.core.ViewModelModule
 import com.manegow.iomessenger.data.di.FirebaseModule
 import com.manegow.iomessenger.data.di.RepositoryModule
-import com.manegow.iomessenger.databasemanager.di.DatabaseModule
 import com.manegow.iomessenger.domain.user.repository.AuthRepository
-import com.manegow.iomessenger.presentation.SignupViewModelFactory
+import com.manegow.iomessenger.presentation.login.LoginViewModelFactory
+import com.manegow.iomessenger.presentation.signup.SignupViewModelFactory
 import dagger.Component
 import javax.inject.Singleton
 
@@ -20,6 +20,7 @@ import javax.inject.Singleton
 )
 interface AppComponent {
     fun signupViewModelFactory(): SignupViewModelFactory
+    fun loginViewModelFactory(): LoginViewModelFactory
     fun authRepository(): AuthRepository
     fun firebaseFirestore(): FirebaseFirestore
 
