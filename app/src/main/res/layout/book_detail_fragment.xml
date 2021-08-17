@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="bookDataImage"
+            type="String" />
+
+        <variable
+            name="bookDataTitle"
+            type="String" />
+
+        <variable
+            name="bookDataDescription"
+            type="String" />
+
+        <variable
+            name="bookDataAuthor"
+            type="String" />
+    </data>
+
+ <androidx.constraintlayout.widget.ConstraintLayout
+     android:layout_height="match_parent"
+     android:layout_width="match_parent">
+
+     <ImageView
+         android:id="@+id/bookImageView"
+         android:layout_width="0dp"
+         android:layout_height="206dp"
+         android:layout_marginTop="32dp"
+         android:contentDescription="@string/content_description_book_detail_image"
+         app:layout_constraintEnd_toEndOf="parent"
+         app:layout_constraintStart_toStartOf="parent"
+         app:layout_constraintTop_toTopOf="parent"
+         tools:srcCompat="@tools:sample/avatars" />
+
+     <TextView
+         android:id="@+id/bookTitleLabel"
+         android:layout_width="0dp"
+         android:layout_height="wrap_content"
+         android:layout_marginStart="8dp"
+         android:layout_marginTop="32dp"
+         android:layout_marginEnd="8dp"
+         android:text="@{bookDataTitle}"
+         android:textAlignment="center"
+         android:textSize="20sp"
+         android:textStyle="bold"
+         app:layout_constraintEnd_toEndOf="parent"
+         app:layout_constraintStart_toStartOf="parent"
+         app:layout_constraintTop_toBottomOf="@+id/bookImageView"
+         tools:text="Titulo del libro" />
+
+     <TextView
+         android:id="@+id/bookDescriptionLabel"
+         android:layout_width="0dp"
+         android:layout_height="wrap_content"
+         android:layout_marginStart="32dp"
+         android:layout_marginTop="16dp"
+         android:layout_marginEnd="32dp"
+         android:text="@{bookDataDescription}"
+         android:textAlignment="viewStart"
+         android:textSize="18sp"
+         android:textStyle="italic"
+         app:layout_constraintEnd_toEndOf="parent"
+         app:layout_constraintStart_toStartOf="parent"
+         app:layout_constraintTop_toBottomOf="@+id/bookTitleLabel"
+         tools:text="Descripcion del libro" />
+
+     <TextView
+         android:id="@+id/bookAuthorLabel"
+         android:layout_width="0dp"
+         android:layout_height="wrap_content"
+         android:layout_marginStart="32dp"
+         android:layout_marginTop="16dp"
+         android:layout_marginEnd="32dp"
+         android:text="@{bookDataAuthor}"
+         android:textSize="20sp"
+         android:textStyle="bold"
+         app:layout_constraintEnd_toEndOf="parent"
+         app:layout_constraintStart_toStartOf="parent"
+         app:layout_constraintTop_toBottomOf="@+id/bookDescriptionLabel"
+         tools:text="Autor del libro" />
+
+     <com.google.android.material.floatingactionbutton.FloatingActionButton
+         android:id="@+id/bookFav"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_marginEnd="16dp"
+         android:layout_marginBottom="16dp"
+         android:backgroundTint="@color/colorAccent"
+         android:clickable="true"
+         app:layout_constraintBottom_toBottomOf="parent"
+         app:layout_constraintEnd_toEndOf="parent"
+         app:tint="@android:color/white" />
+
+ </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
