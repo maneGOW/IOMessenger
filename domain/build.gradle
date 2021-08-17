@@ -1,8 +1,10 @@
-plugins {
-    id 'java-library'
-    id 'kotlin'
-}
+apply plugin: 'java-library'
+apply plugin: 'kotlin'
 
 dependencies {
     implementation kotlinLib
+
+    //RxJava
+    implementation rxAndroidLib
+    implementation rxJavaLib
 }

@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "419432397965",
+    "project_id": "iomessenger-24a62",
+    "storage_bucket": "iomessenger-24a62.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:419432397965:android:a73bb23a08c13354c676c4",
+        "android_client_info": {
+          "package_name": "com.manegow.iomessenger"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "419432397965-046tca01hf578iti201esc5gau65n8sf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDT8sFxW5IUsHs5rgvWkadahecf8K3FEaU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "419432397965-046tca01hf578iti201esc5gau65n8sf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:419432397965:android:4d36cf49efd3fee9c676c4",
+        "android_client_info": {
+          "package_name": "com.manegow.iomessenger.data"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "419432397965-046tca01hf578iti201esc5gau65n8sf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDT8sFxW5IUsHs5rgvWkadahecf8K3FEaU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "419432397965-046tca01hf578iti201esc5gau65n8sf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

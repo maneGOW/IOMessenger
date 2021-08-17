@@ -1,8 +1,14 @@
+include ':framework:requestmanager'
+include ':framework:databasemanager'
+include ':framework:imagemanager'
+include ':usecases'
+include ':data'
+include ':domain'
 rootProject.name = "IOMessenger"
 include ':app'
-include ':domain'
-include ':data'
-include ':framework:requestmanager'
-include ':framework:imagemanager'
-include ':framework:databasemanager'
-include ':usecases'
+
+
+
+
+
+

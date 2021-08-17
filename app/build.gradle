@@ -1,15 +1,10 @@
-plugins {
-    id 'com.android.application'
-    id 'kotlin-android'
-    id 'kotlin-android-extensions'
-    id 'kotlin-kapt'
-    id 'androidx.navigation.safeargs.kotlin'
-    id 'com.google.gms.google-services'
-}
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion rootProject.compileSdkVersion
-    buildToolsVersion "30.0.3"
 
     defaultConfig {
         applicationId "com.manegow.iomessenger"
@@ -20,6 +15,10 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
 
     buildTypes {
         release {
@@ -27,17 +26,13 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-    dataBinding{
-        true
-    }
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+    dataBinding {
+        enabled = true
     }
     kotlinOptions {
         jvmTarget = '1.8'
     }
-    sourceSets{
+    sourceSets {
         main.java.srcDirs += 'src/main/java'
         test.java.srcDirs += 'src/test/java'
     }
@@ -46,14 +41,18 @@ android {
     }
 }
 
-androidExtensions{
+androidExtensions {
     experimental = true
     glideCompiler
 }
 
-dependencies {
+kapt {
+    generateStubs = true
+}
 
-    //Project
+
+dependencies {
+//Project
     implementation project(":data")
     implementation project(":domain")
     implementation project(":usecases")
@@ -61,12 +60,21 @@ dependencies {
     implementation project(":framework:imagemanager")
     implementation project(":framework:requestmanager")
 
-
     //Kotlin
     implementation kotlinLib
 
     //Dagger
     implementation daggerLib
+    implementation daggerSupportLib
+    implementation daggerAndroidSupportLib
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.3.1'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1'
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.3.5'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.3.5'
+    kapt 'com.android.databinding:compiler:3.1.4'
+    implementation "android.arch.lifecycle:extensions:1.1.1"
+    kapt daggerProcessor
     kapt daggerCompiler
 
     //KTX
@@ -82,19 +90,7 @@ dependencies {
     implementation rxAndroidLib
     implementation rxJavaLib
 
-    //Firebase
-    implementation firebaseCoreLib
-    implementation firebaseAuthLib
-    implementation firebaseStorageLib
-    implementation firebaseDatabaseLib
-
-    //Circle Image View
-    implementation circleImageViewLib
-
-    //Groupie
-    implementation groupieLib
-
-    //View
+    // View
     implementation appCompatLib
     implementation constraintLayoutLib
     implementation recyclerViewLib
@@ -106,4 +102,17 @@ dependencies {
     testImplementation jUnitLib
     testImplementation mockitoLib
     testImplementation mockitoInlineLib
+
+    //Firebase
+    implementation firebaseCoreLib
+    implementation firebaseAuthLib
+    implementation firebaseStorageLib
+    implementation firebaseDatabaseLib
+    implementation firebaseFirestoreLib
+
+    //Circle Image View
+    implementation circleImageViewLib
+
+    //Groupie
+    implementation groupieLib
 }
